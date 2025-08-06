@@ -1,0 +1,6 @@
+# Common Node ignores
+node_modules/
+.DS_Store
+
+# Kai internal files (logs, cache, config) - (auto-added by Kai)
+.kai/

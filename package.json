@@ -1,0 +1,22 @@
+{
+  "name": "scaffold-gemini",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/run.js",
+  "bin": {
+    "g-task": "dist/g-task.js"
+  },
+  "scripts": {
+    "start": "node dist/run.js",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "typescript": "^5.9.2"
+  }
+}
