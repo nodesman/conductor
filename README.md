@@ -66,18 +66,20 @@ By standardizing this information, a future script or Gemini-powered agent can p
 
 To support this system, `conductor` provides commands to handle the clerical work.
 
-### `conductor init`
+### 1. `conductor analyze-story` (The First Step)
 
-When run in a project's root directory, this command generates a prompt for Gemini to create the foundational tracking files (`project_kanban.md`, `README.md`, `CHANGELOG.md`) based on the templates.
+Before any story is added to the backlog, it must be analyzed. This command uses AI to play the role of a skeptical product manager, ensuring the story is well-defined, valuable, and necessary.
 
+**Usage:**
 ```bash
-# Run from your project's root directory
-conductor init | gemini
+conductor analyze-story "Your one-line story description here" --epic "Name of the Epic" | gemini
 ```
 
-### `conductor add-story`
+This generates a detailed analysis document in `/docs/analysis/` based on a template. The AI's task is to complete a checklist, explore alternatives, and ultimately "verify" the story. Only verified stories should proceed.
 
-This command automates the process of adding a new story to your project. It generates a multi-step prompt for Gemini that does two things:
+### 2. `conductor add-story`
+
+Once a story has been analyzed and verified, this command formally adds it to the project. It generates a multi-step prompt for Gemini that does two things:
 1.  Creates a detailed story document in `/docs/stories/` based on `templates/story_template.md`.
 2.  Adds a corresponding one-line task to the `project_kanban.md` backlog, linking to the new story document.
 
@@ -86,4 +88,11 @@ This command automates the process of adding a new story to your project. It gen
 conductor add-story "Your one-line story description here" --epic "Name of the Epic" | gemini
 ```
 
-This ensures that every new piece of work is properly documented and tracked from its inception.
+### 3. `conductor init`
+
+When run in a project's root directory, this command generates a prompt for Gemini to create the foundational tracking files (`project_kanban.md`, `README.md`, `CHANGELOG.md`) based on the templates.
+
+```bash
+# Run from your project's root directory
+conductor init | gemini
+```

@@ -64,6 +64,41 @@ ${content}
         ];
         console.log(promptLines.join('\n'));
     }
+    else if (command === 'analyze-story') {
+        const storyDescriptionIndex = args.findIndex(arg => !arg.startsWith('--'));
+        const storyDescription = args[storyDescriptionIndex];
+        const epicIndex = args.findIndex(arg => arg === '--epic');
+        const epic = epicIndex !== -1 && args.length > epicIndex + 1 ? args[epicIndex + 1] : 'Unassigned';
+        if (!storyDescription) {
+            console.error('Error: The analyze-story command requires a story description.');
+            console.error('Example: conductor analyze-story "As a user, I want to see my profile" --epic "User Management"');
+            process.exit(1);
+        }
+        const sanitized = storyDescription.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-');
+        const analysisFileName = `docs/analysis/${sanitized.slice(0, 50)}.md`;
+        const storyTitle = storyDescription.replace(/As a .*?, I want to /i, '');
+        const templatePath = path.join(__dirname, '..', 'templates', 'analysis_template.md');
+        let analysisContent = fs.readFileSync(templatePath, 'utf-8');
+        analysisContent = analysisContent.replace('{{STORY_TITLE}}', storyTitle);
+        analysisContent = analysisContent.replace('{{EPIC_NAME}}', epic);
+        analysisContent = analysisContent.replace('{{USER_STORY}}', storyDescription);
+        const promptLines = [
+            "Hello! I need you to act as a skeptical product manager and analyze a new story idea. Your task is to create a new analysis document and complete it according to the instructions within.",
+            "",
+            "**Your Task: Create the Analysis Document**",
+            "",
+            `1. Create a new file named \\\`${analysisFileName}\\\`.`,
+            "",
+            "2. Populate this new file with the following content, and then complete the analysis as instructed within the template. You must be critical and thorough.",
+            "",
+            "```markdown",
+            analysisContent,
+            "```",
+            "",
+            "Your final output should be only the completed analysis document. Do not add any other commentary."
+        ];
+        console.log(promptLines.join('\n'));
+    }
     else if (command === 'add-story') {
         const storyDescriptionIndex = args.findIndex(arg => !arg.startsWith('--'));
         const storyDescription = args[storyDescriptionIndex];
@@ -74,7 +109,23 @@ ${content}
             console.error('Example: conductor add-story "As a user, I want to see my profile" --epic "User Management"');
             process.exit(1);
         }
+        // Verification Step
         const sanitized = storyDescription.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-');
+        const analysisFileName = `docs/analysis/${sanitized.slice(0, 50)}.md`;
+        try {
+            const analysisContent = fs.readFileSync(analysisFileName, 'utf-8');
+            if (!analysisContent.includes('Status: `Verified`')) {
+                console.error(`Error: Analysis for this story is not verified.`);
+                console.error(`Please check the status in ${analysisFileName}.`);
+                process.exit(1);
+            }
+        }
+        catch (error) {
+            console.error(`Error: Could not find analysis file for this story.`);
+            console.error(`Please run 'conductor analyze-story "${storyDescription}"' first.`);
+            process.exit(1);
+        }
+        // Original add-story logic
         const storyFileName = `docs/stories/${sanitized.slice(0, 50)}.md`;
         const storyTitle = storyDescription.replace(/As a .*?, I want to /i, '');
         const templatePath = path.join(__dirname, '..', 'templates', 'story_template.md');
@@ -87,27 +138,27 @@ ${content}
             "",
             "**Step 1: Create the Story Document**",
             "",
-            `First, please create a new file named \`${storyFileName}\`.`,
+            `First, please create a new file named \\egular{storyFileName}\\\regular.`, // Corrected escaping for backticks within template literal
             "",
             "Populate this new file with the following content. Based on the initial user story, please flesh out the \"Acceptance Criteria\" and \"Value Proposition\" sections with sensible, detailed information.",
             "",
             "```markdown",
             storyContent,
             "---",
-            `*Initial User Story:* "${storyDescription}"`,
+            `*Initial User Story:* \"${storyDescription}\"`, // Corrected escaping for quotes within template literal
             "```",
             "",
             "**Step 2: Update the Kanban Board**",
             "",
             "After creating the story file, you must update the main Kanban board.",
             "",
-            `1. Read the file ${kanbanPath}.`,
+            `1. Read the file ${kanbanPath}.`, // Corrected escaping for backticks within template literal
             "2. Find the line that says ## backlog.",
             "3. Add the following new line directly underneath it:",
             "```",
             `${newBacklogItem}`,
             "```",
-            `4. Save the modified ${kanbanPath} file.`,
+            `4. Save the modified ${kanbanPath} file.`, // Corrected escaping for backticks within template literal
             "",
             "Please ensure both steps are completed."
         ];

@@ -8,7 +8,18 @@ By using `conductor` to orchestrate your interactions, you guide the AI to be a 
 
 The `conductor` commands are designed to be chained together to mirror a thoughtful software development lifecycle. A typical workflow might look like this:
 
-### 1. Problem Analysis & Critique (`--critique`)
+### 1. Story Analysis & Verification (`analyze-story`)
+
+This is the mandatory first step. Before a story is even considered for the backlog, it must be rigorously analyzed by the AI. This command frames the AI as a skeptical product owner to ensure the idea is valuable and well-conceived.
+
+**Usage:**
+```bash
+# Ask the AI to analyze and verify your feature idea.
+conductor analyze-story "As a user, I want to see my profile" --epic "User Management" | gemini
+```
+**Outcome:** A detailed analysis document in `docs/analysis/` that either verifies the story is ready for development or outlines the reasons why it is not.
+
+### 2. Problem Analysis & Critique (`--critique`)
 
 Before you write a single line of code, question the problem itself. Is this feature necessary? Is there a simpler way? Use `--critique` to have the AI challenge your assumptions.
 
@@ -19,7 +30,7 @@ conductor --critique "We should build a real-time notification system for user c
 ```
 **Outcome:** A structured critique that helps you validate, refine, or even discard the idea, saving you from building the wrong thing.
 
-### 2. Planning & Structuring (`--plan`)
+### 3. Planning & Structuring (`--plan`)
 
 Once the idea is validated, create a detailed implementation plan *before* writing code. This forces you to think through the architecture and provides a clear roadmap for the AI.
 
@@ -30,7 +41,7 @@ conductor --plan "Feature: Real-time notifications for comments" | gemini
 ```
 **Outcome:** A detailed, reviewable plan that breaks the problem into manageable, testable steps. This is your new, well-defined user story.
 
-### 3. Context-Aware Implementation (`--contextualize`)
+### 4. Context-Aware Implementation (`--contextualize`)
 
 Now you can start generating code, but ensure the AI is aware of your project's specific conventions. For each step in your plan, provide relevant files for context.
 
@@ -41,7 +52,7 @@ conductor --contextualize src/api.ts src/types.ts "Implement the API endpoint fr
 ```
 **Outcome:** Code that is more likely to use your existing helpers, match your style, and integrate cleanly with your codebase.
 
-### 4. Iterative Refinement (`--refine`)
+### 5. Iterative Refinement (`--refine`)
 
 The AI's first draft is rarely perfect. Use `--refine` to have the AI review and improve its own output, catching bugs and quality issues before you do.
 

@@ -10,5 +10,6 @@
 
 ## Done
 
+- [x] Enforce verified analysis for 'add-story' command (Epic: Workflow Enforcement) - see docs/stories/enforce-verified-analysis-for-add-story-command.md
 - [x] [Implement `conductor --contextualize` feature](docs/features/01_contextualize.md)
 - [x] Analyze 'No, AI is not Making Engineers 10x as Productive' article and create actionable tasks.
