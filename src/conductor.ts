@@ -11,13 +11,13 @@ const __dirname = dirname(__filename);
 const args = process.argv.slice(2);
 
 if (args.length === 0) {
-  // No arguments, print the manual.
-  const manualPath = path.join(__dirname, '../docs/conductor_manual.md');
+  // No arguments, print the main task management prompt.
+  const promptPath = path.join(__dirname, '../gemini_task_management_prompt.md');
   try {
-    const manual = fs.readFileSync(manualPath, 'utf-8');
-    console.log(manual);
+    const prompt = fs.readFileSync(promptPath, 'utf-8');
+    console.log(prompt);
   } catch (error) {
-    console.error('Error reading the manual file:', error);
+    console.error('Error reading the prompt file:', error);
     process.exit(1);
   }
 } else {

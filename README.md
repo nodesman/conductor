@@ -31,6 +31,12 @@ By focusing on prompt generation, we can create a library of prompt strategies t
 
 This tool is an experiment in using AI to augment engineering intelligence, not just to generate code.
 
+### Getting Unstuck: The GPT-5 Second Opinion
+
+Even with the best prompts, an AI can get stuck. To address this, `conductor` has a built-in diagnostic step. If Gemini is unable to solve a problem after a few attempts, the workflow will suggest using OpenAI's GPT-5 for a "second opinion".
+
+This is handled by a pre-formatted `curl` command that you can execute. It assumes you have an `OPENAI_API_KEY` environment variable set. This mechanism is designed to break loops and introduce fresh perspectives when you're hitting a wall, ensuring that you always have a path forward.
+
 ## Cross-Project Intelligence and Task Management
 
 Beyond generating prompts for code-level tasks, this project also establishes a standardized structure for managing multiple projects. The goal is to enable a centralized tool, potentially powered by Gemini, to read, understand, and reason about the status and priorities of all your projects at a high level.

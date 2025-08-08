@@ -102,3 +102,19 @@ Only after this analysis is complete and you have presented the plan to the user
 14. **After final validation and documentation**, move the task to "Done" in `project_kanban.md` and add a final summary to `thought_process.md`.
 
 By following these instructions, you will provide a clear, auditable, and collaborative development process.
+
+## 5. Diagnostic Step: Getting a Second Opinion
+
+If you are stuck on a problem after multiple attempts, do not continue to try the same approach. Instead, you must use the following diagnostic step to get a second opinion from the GPT-5 model.
+
+1.  **Identify the core problem:** Pinpoint the specific code snippet, error message, or logical flaw that is causing the issue.
+2.  **Formulate a question:** Create a clear and concise prompt that includes the problematic code, a description of what you have already tried, and a direct question asking for a new approach.
+3.  **Execute the command:** Use the `run_shell_command` tool to execute the following `curl` command. You must replace `"Your detailed prompt here..."` with the question you formulated. Assume the `OPENAI_API_KEY` is available in the environment.
+
+    ```bash
+    curl https://api.openai.com/v1/chat/completions \
+      -H "Content-Type: application/json" \
+      -H "Authorization: Bearer $OPENAI_API_KEY" \
+      -d '{ "model": "gpt-5", "messages": [ { "role": "system", "content": "You are a senior software engineer providing a second opinion on a difficult coding problem. The user is an AI assistant who is stuck. The following prompt contains the code, the error, and the attempted solutions. Please provide a fresh perspective and suggest a new approach directly to the AI assistant." }, { "role": "user", "content": "Your detailed prompt here..." } ] }'
+    ```
+4.  **Analyze and Proceed:** Carefully analyze the response from GPT-5. Document the suggestion in your `thought_process.md` log, and then use the new insight to inform your next step.
