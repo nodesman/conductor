@@ -1,3 +1,5 @@
+<img src="assets/image.png" alt="Conductor AI" width="200" align="left">
+
 # Conductor AI
 
 This project is a command-line interface (CLI) tool designed to help software engineers use Google's Gemini more effectively and thoughtfully. It's an opinionated workflow engine for guiding AI in software engineering.
