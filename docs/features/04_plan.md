@@ -1,4 +1,4 @@
-# Feature: `g-task --plan`
+# Feature: `conductor --plan`
 
 ## 1. The Problem
 
@@ -16,7 +16,7 @@ This plan, created before any code is written, can be reviewed and approved by a
 
 ```bash
 # The user wants a detailed implementation plan before starting to code.
-g-task --plan docs/new_feature_spec.md | gemini
+conductor --plan docs/new_feature_spec.md | gemini
 ```
 
 ## 4. Generated Prompt Example

@@ -1,12 +1,12 @@
 # Thought Process Log
 
-## Task: [Implement `g-task --contextualize` feature](docs/features/01_contextualize.md)
+## Task: [Implement `conductor --contextualize` feature](docs/features/01_contextualize.md)
 
 **Analysis (following the protocol):**
 *   **Critique:** This feature is essential. It directly addresses the core problem of AI lacking codebase context, as identified in the article. The proposed solution of reading files and prepending them to a prompt is a direct and effective way to solve this. No simpler alternative exists for this specific problem.
-*   **Context:** I will read `src/g-task.ts` to understand the existing argument parsing. I will also re-read `docs/features/01_contextualize.md` to ensure the generated prompt perfectly matches the specification.
+*   **Context:** I will read `src/conductor.ts` to understand the existing argument parsing. I will also re-read `docs/features/01_contextualize.md` to ensure the generated prompt perfectly matches the specification.
 *   **Plan:**
-    1.  Modify `src/g-task.ts` to implement the `--contextualize` command logic.
+    1.  Modify `src/conductor.ts` to implement the `--contextualize` command logic.
     2.  The script will identify all arguments between the `--contextualize` command and the final argument. These will be treated as file paths.
     3.  The final argument will be treated as the user's core request.
     4.  The script will read each file, handling potential read errors gracefully.

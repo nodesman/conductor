@@ -12,7 +12,7 @@ const args = process.argv.slice(2);
 
 if (args.length === 0) {
   // No arguments, print the manual.
-  const manualPath = path.join(__dirname, '../docs/g-task_manual.md');
+  const manualPath = path.join(__dirname, '../docs/conductor_manual.md');
   try {
     const manual = fs.readFileSync(manualPath, 'utf-8');
     console.log(manual);
@@ -78,7 +78,7 @@ ${content}
 
     if (!storyDescription) {
       console.error('Error: The add-story command requires a story description.');
-      console.error('Example: g-task add-story "As a user, I want to see my profile" --epic "User Management"');
+      console.error('Example: conductor add-story "As a user, I want to see my profile" --epic "User Management"');
       process.exit(1);
     }
 

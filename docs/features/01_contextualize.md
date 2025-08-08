@@ -1,4 +1,4 @@
-# Feature: `g-task --contextualize`
+# Feature: `conductor --contextualize`
 
 ## 1. The Problem
 
@@ -17,7 +17,7 @@ It will take a list of file paths as arguments. It will then read the content of
 ```bash
 # The user wants the AI to write a new function in 'src/utils.ts'
 # They provide existing files for context.
-g-task --contextualize src/api.ts src/types.ts "write a function to fetch user data" | gemini
+conductor --contextualize src/api.ts src/types.ts "write a function to fetch user data" | gemini
 ```
 
 ## 4. Generated Prompt Example

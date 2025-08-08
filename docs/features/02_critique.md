@@ -1,4 +1,4 @@
-# Feature: `g-task --critique`
+# Feature: `conductor --critique`
 
 ## 1. The Problem
 
@@ -16,7 +16,7 @@ It takes a feature specification (as a file or string) and generates a prompt th
 
 ```bash
 # The user has a spec for a new feature and wants the AI to challenge it.
-g-task --critique docs/new_feature_spec.md | gemini
+conductor --critique docs/new_feature_spec.md | gemini
 ```
 
 ## 4. Generated Prompt Example

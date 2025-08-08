@@ -1,12 +1,12 @@
-# g-task: A Manual for Thoughtful AI-Assisted Development
+# Conductor: A Manual for AI-Guided Development
 
-`g-task` is not a code generator. It is a **prompt generator**. Its purpose is to help you, the engineer, have more structured, critical, and productive conversations with a Large Language Model (LLM) like Gemini.
+`conductor` is not just a prompt generator; it's an opinionated workflow engine for guiding AI in software engineering. It establishes a set of conventions—"the rails"—for interacting with a Large Language Model (LLM) to solve common development tasks.
 
-By using `g-task` to scaffold your prompts, you can guide the AI away from common pitfalls (like ignoring context or rushing to a solution) and towards being a more effective thought partner.
+By using `conductor` to orchestrate your interactions, you guide the AI to be a more effective thought partner, ensuring a structured and high-quality development process.
 
 ## The Core Workflow
 
-The `g-task` commands are designed to be chained together to mirror a thoughtful software development lifecycle. A typical workflow might look like this:
+The `conductor` commands are designed to be chained together to mirror a thoughtful software development lifecycle. A typical workflow might look like this:
 
 ### 1. Problem Analysis & Critique (`--critique`)
 
@@ -15,7 +15,7 @@ Before you write a single line of code, question the problem itself. Is this fea
 **Usage:**
 ```bash
 # Ask the AI to act as a skeptical senior engineer and critique your feature idea.
-g-task --critique "We should build a real-time notification system for user comments." | gemini
+conductor --critique "We should build a real-time notification system for user comments." | gemini
 ```
 **Outcome:** A structured critique that helps you validate, refine, or even discard the idea, saving you from building the wrong thing.
 
@@ -26,7 +26,7 @@ Once the idea is validated, create a detailed implementation plan *before* writi
 **Usage:**
 ```bash
 # Ask the AI to create a step-by-step implementation plan for the feature.
-g-task --plan "Feature: Real-time notifications for comments" | gemini
+conductor --plan "Feature: Real-time notifications for comments" | gemini
 ```
 **Outcome:** A detailed, reviewable plan that breaks the problem into manageable, testable steps. This is your new, well-defined user story.
 
@@ -37,7 +37,7 @@ Now you can start generating code, but ensure the AI is aware of your project's 
 **Usage:**
 ```bash
 # For Step 2 of your plan, provide the API and types files for context.
-g-task --contextualize src/api.ts src/types.ts "Implement the API endpoint from Step 2 of the plan" | gemini
+conductor --contextualize src/api.ts src/types.ts "Implement the API endpoint from Step 2 of the plan" | gemini
 ```
 **Outcome:** Code that is more likely to use your existing helpers, match your style, and integrate cleanly with your codebase.
 
@@ -48,7 +48,7 @@ The AI's first draft is rarely perfect. Use `--refine` to have the AI review and
 **Usage:**
 ```bash
 # Ask the AI to review the code it just generated for bugs and security flaws.
-g-task --refine <path/to/generated_code.js> | gemini
+conductor --refine <path/to/generated_code.js> | gemini
 ```
 **Outcome:** Higher-quality, more secure, and more maintainable code.
 

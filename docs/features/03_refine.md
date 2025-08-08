@@ -1,4 +1,4 @@
-# Feature: `g-task --refine`
+# Feature: `conductor --refine`
 
 ## 1. The Problem
 
@@ -16,7 +16,7 @@ This creates a feedback loop where the AI is forced to transition from a "genera
 
 ```bash
 # The user has some AI-generated code and wants to improve it.
-g-task --refine generated_code.js | gemini
+conductor --refine generated_code.js | gemini
 ```
 
 ## 4. Generated Prompt Example

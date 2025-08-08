@@ -1,6 +1,6 @@
-# Gemini Prompt Scaffolding CLI
+# Conductor AI
 
-This project is a command-line interface (CLI) tool designed to help software engineers use Google's Gemini more effectively and thoughtfully.
+This project is a command-line interface (CLI) tool designed to help software engineers use Google's Gemini more effectively and thoughtfully. It's an opinionated workflow engine for guiding AI in software engineering.
 
 ## The Problem
 
@@ -10,17 +10,17 @@ As outlined in the article "[No, AI is not Making Engineers 10x as Productive](h
 -   Failure to prevent unnecessary work.
 -   Creation of code that violates project standards and best practices.
 
-This tool aims to mitigate these problems.
+This tool aims to mitigate these problems by establishing "the rails for AI-guided development."
 
 ## The Solution
 
-This CLI does not call the Gemini API directly. Instead, it acts as a "prompt generator" or "scaffolder". Its only role is to **generate sophisticated, context-aware prompts and print them to standard output.**
+This CLI does not call the Gemini API directly. Instead, it acts as a "workflow engine" or "orchestrator". Its only role is to **generate sophisticated, context-aware prompts and print them to standard output.**
 
 The user can then pipe these carefully constructed prompts into the `gemini` CLI.
 
 ```bash
 # Example Usage (conceptual)
-g-task --generate-critique-prompt <feature.md | gemini
+conductor --critique <feature.md | gemini
 ```
 
 By focusing on prompt generation, we can create a library of prompt strategies that encourage the AI to:
@@ -56,18 +56,18 @@ By standardizing this information, a future script or Gemini-powered agent can p
 
 ## Workflow Commands
 
-To support this system, `g-task` provides commands to handle the clerical work.
+To support this system, `conductor` provides commands to handle the clerical work.
 
-### `g-task init`
+### `conductor init`
 
 When run in a project's root directory, this command generates a prompt for Gemini to create the foundational tracking files (`project_kanban.md`, `README.md`, `CHANGELOG.md`) based on the templates.
 
 ```bash
 # Run from your project's root directory
-g-task init | gemini
+conductor init | gemini
 ```
 
-### `g-task add-story`
+### `conductor add-story`
 
 This command automates the process of adding a new story to your project. It generates a multi-step prompt for Gemini that does two things:
 1.  Creates a detailed story document in `/docs/stories/` based on `templates/story_template.md`.
@@ -75,7 +75,7 @@ This command automates the process of adding a new story to your project. It gen
 
 **Usage:**
 ```bash
-g-task add-story "Your one-line story description here" --epic "Name of the Epic" | gemini
+conductor add-story "Your one-line story description here" --epic "Name of the Epic" | gemini
 ```
 
 This ensures that every new piece of work is properly documented and tracked from its inception.

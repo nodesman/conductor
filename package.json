@@ -1,17 +1,22 @@
 {
-  "name": "scaffold-gemini",
+  "name": "conductor-ai",
   "version": "1.0.0",
-  "description": "",
+  "description": "A workflow engine for guiding AI in software engineering.",
   "main": "dist/run.js",
   "bin": {
-    "g-task": "dist/g-task.js"
+    "conductor": "dist/conductor.js"
   },
   "scripts": {
     "start": "node dist/run.js",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "ai",
+    "llm",
+    "developer-tools",
+    "prompt-engineering"
+  ],
   "author": "",
   "license": "ISC",
   "type": "module",

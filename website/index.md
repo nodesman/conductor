@@ -6,8 +6,8 @@ layout: default
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1 class="hero-title">Stop Talking to Your AI.<br>Start Orchestrating It.</h1>
-    <p class="hero-subtitle">`g-task` is a command-line tool that transforms your interaction with AI from a simple chat into a structured, repeatable engineering discipline.</p>
+    <h1 class="hero-title">Stop Talking to Your AI.<br>Start Conducting It.</h1>
+    <p class="hero-subtitle">`conductor` is a command-line tool that transforms your interaction with AI from a simple chat into a structured, repeatable engineering discipline.</p>
     <div class="hero-buttons">
       <a href="#install" class="btn btn-primary">Install via npm</a>
       <a href="{{ site.github_repo_url }}" class="btn btn-secondary" target="_blank">View on GitHub</a>
@@ -22,8 +22,8 @@ layout: default
 
   <!-- The Solution -->
   <section id="solution" class="section">
-    <h2 class="section-title">A Repeatable, Structured Workflow</h2>
-    <p>`g-task` provides a set of "mental jigs"—high-precision, reusable commands that scaffold the perfect prompt every time. It forces a thoughtful workflow of critiquing, planning, and providing deep context, ensuring the AI acts as a true thought partner.</p>
+    <h2 class="section-title">AI-Guided Development on Rails</h2>
+    <p>`conductor` provides a set of "mental jigs"—high-precision, reusable commands that generate the perfect prompt every time. It forces a thoughtful workflow of critiquing, planning, and providing deep context, ensuring the AI acts as a true thought partner.</p>
   </section>
 
   <!-- Features Section -->
@@ -31,24 +31,24 @@ layout: default
     <h2 class="section-title">Core Commands</h2>
     <div class="features-grid">
       <div class="feature-card">
-        <h3>g-task --critique</h3>
+        <h3>conductor --critique</h3>
         <p>Challenge your own assumptions. Use the AI to find flaws in your reasoning *before* you write a single line of code.</p>
-        <pre><code>g-task --critique "We should build a real-time notification system." | gemini</code></pre>
+        <pre><code>conductor --critique "We should build a real-time notification system." | gemini</code></pre>
       </div>
       <div class="feature-card">
-        <h3>g-task --plan</h3>
+        <h3>conductor --plan</h3>
         <p>Force architectural thinking upfront. Generate a detailed, step-by-step implementation plan for any feature.</p>
-        <pre><code>g-task --plan "Feature: Real-time notifications for comments" | gemini</code></pre>
+        <pre><code>conductor --plan "Feature: Real-time notifications for comments" | gemini</code></pre>
       </div>
       <div class="feature-card">
-        <h3>g-task --contextualize</h3>
+        <h3>conductor --contextualize</h3>
         <p>Provide deep context. Feed the AI relevant files to ensure its output matches your project's existing patterns and conventions.</p>
-        <pre><code>g-task --contextualize src/api.ts "Implement the API endpoint" | gemini</code></pre>
+        <pre><code>conductor --contextualize src/api.ts "Implement the API endpoint" | gemini</code></pre>
       </div>
       <div class="feature-card">
-        <h3>g-task --refine</h3>
+        <h3>conductor --refine</h3>
         <p>Iterate on quality. Have the AI review its own output for bugs, security flaws, and style violations.</p>
-        <pre><code>g-task --refine &lt;path/to/generated_code.js&gt; | gemini</code></pre>
+        <pre><code>conductor --refine &lt;path/to/generated_code.js&gt; | gemini</code></pre>
       </div>
     </div>
   </section>
@@ -56,8 +56,8 @@ layout: default
   <!-- Install Section -->
   <section id="install" class="section">
     <h2 class="section-title">Get Started</h2>
-    <p>Install `g-task` from npm and start having more productive conversations with your AI today.</p>
-    <pre><code>npm install -g g-task-scaffolder # Assuming this will be the package name
+    <p>Install `conductor` from npm and start having more productive conversations with your AI today.</p>
+    <pre><code>npm install -g conductor-ai
 </code></pre>
   </section>
 
