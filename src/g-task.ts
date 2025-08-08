@@ -150,7 +150,7 @@ ${content}
           '---',
           `**Create the file \\\`${outputFile}\\\\\`**`,
           'Please create this file with the following content:',
-          '```markdown`,
+          '```markdown',
           content,
           '```',
           '---',

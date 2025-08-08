@@ -1,0 +1,22 @@
+# Site settings
+title: "g-task: The Thoughtful AI Prompt Scaffolder"
+description: >-
+  g-task is a CLI tool that helps you have more structured, critical, and productive conversations with Large Language Models (LLMs) like Gemini. Stop talking to your AI. Start orchestrating it.
+baseurl: "/scaffold-gemini" # Assuming it will be hosted on GitHub pages for this repo
+url: "https://your-github-username.github.io" # Replace with your GitHub pages URL
+github_username: your-github-username # Replace with your GitHub username
+github_repo_url: "https://github.com/your-github-username/scaffold-gemini" # Replace with your repo URL
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
